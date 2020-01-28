@@ -1,13 +1,8 @@
 language: php
 
-matrix:
-  include:
-    - dist: bionic
-      php: 7.2
-    - dist: bionic
-      php: 7.3
-    - dist: bionic
-      php: 7.4
+php:
+  - 7.2
+  - 7.3
 
 cache:
   directories:
