@@ -1,0 +1,59 @@
+{
+    "name": "laravel-webhooks/client",
+    "description": "Base package to receive Webhooks on your Laravel application.",
+    "keywords": [
+        "php",
+        "werxe",
+        "laravel",
+        "webhook"
+    ],
+    "homepage": "https://open-source.werxe.com/laravel-webhooks",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Werxe",
+            "email": "hello@werxe.com",
+            "homepage": "https://werxe.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "laravel/framework": "^6.0"
+    },
+    "require-dev": {
+        "werxe/php-cs-fixer-config": "^1.0",
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelWebhooks\\Client\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaravelWebhooks\\Client\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "LaravelWebhooks\\Client\\ServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "cs:check": "./vendor/bin/php-cs-fixer fix --verbose --ansi --show-progress=estimating --diff --dry-run --config .php_cs.php",
+        "cs:fix": "./vendor/bin/php-cs-fixer fix --verbose --ansi --show-progress=estimating --config .php_cs.php",
+        "test": "./vendor/bin/phpunit --verbose --colors=always"
+    },
+    "minimum-stability": "stable"
+}
