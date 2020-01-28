@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaravelWebhooks\Client\Http\Controllers;
 
 use Carbon\Carbon;
@@ -28,7 +30,7 @@ abstract class WebhookClientController extends Controller
     {
         $this->request = $request;
 
-        $this->validRequest();
+        $this->validateRequest();
 
         $webhook = $this->storeWebhook();
 
@@ -69,7 +71,7 @@ abstract class WebhookClientController extends Controller
      *
      * @return void
      */
-    abstract public function validRequest(): void;
+    abstract public function validateRequest(): void;
 
     /**
      * Returns the webhook type or event name.

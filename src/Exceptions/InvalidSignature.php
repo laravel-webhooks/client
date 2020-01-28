@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaravelWebhooks\Client\Exceptions;
 
 class InvalidSignature extends BaseException
@@ -7,12 +9,17 @@ class InvalidSignature extends BaseException
     /**
      * Constructor.
      *
+     * @param string $message
      * @param string $signature
      *
      * @return void
      */
-    public function __construct(string $signature)
+    public function __construct(string $message, string $signature)
     {
-        parent::__construct("The signature {$signature} is invalid.");
+        if (! $message) {
+            $message = 'The signature %s is invalid.';
+        }
+
+        parent::__construct(sprintf($message, $signature));
     }
 }
