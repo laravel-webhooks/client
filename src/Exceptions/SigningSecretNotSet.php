@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace LaravelWebhooks\Client\Exceptions;
 
-use Exception;
-
-class SigningSecretNotSet extends Exception
+class SigningSecretNotSet extends BaseException
 {
     /**
      * Constructor.

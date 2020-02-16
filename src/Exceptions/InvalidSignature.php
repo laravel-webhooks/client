@@ -20,6 +20,6 @@ class InvalidSignature extends BaseException
             $message = 'The signature %s is invalid.';
         }
 
-        parent::__construct(sprintf($message, $signature));
+        parent::__construct(sprintf($message, $signature), 401);
     }
 }

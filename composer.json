@@ -18,7 +18,8 @@
     ],
     "require": {
         "php": "^7.2",
-        "laravel/framework": "^6.0"
+        "laravel/framework": "^6.0",
+        "symfony/http-kernel": "^4.3"
     },
     "require-dev": {
         "werxe/php-cs-fixer-config": "^1.0",
