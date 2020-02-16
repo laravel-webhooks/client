@@ -18,7 +18,7 @@ class CreateWebhooksReceivedTable extends Migration
         Schema::create('webhooks_received', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('name');
+            $table->string('type');
             $table->mediumText('payload')->nullable();
             $table->mediumText('exception')->nullable();
 

@@ -100,7 +100,7 @@ abstract class WebhookClientController extends Controller
 
         $jobs = $this->getDefinedJobs();
 
-        return in_array($type, $jobs) && class_exists($jobs[$type]);
+        return array_key_exists($type, $jobs) && class_exists($jobs[$type]);
     }
 
     /**
@@ -116,7 +116,7 @@ abstract class WebhookClientController extends Controller
 
         $jobs = $this->getDefinedJobs();
 
-        if (in_array($type, $jobs) && class_exists($jobs[$type])) {
+        if (array_key_exists($type, $jobs) && class_exists($jobs[$type])) {
             $jobClassName = $jobs[$type];
 
             dispatch(new $jobClassName($webhook));
