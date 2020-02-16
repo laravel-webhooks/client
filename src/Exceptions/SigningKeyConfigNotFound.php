@@ -15,6 +15,6 @@ class SigningKeyConfigNotFound extends BaseException
      */
     public function __construct(string $signingKey)
     {
-        parent::__construct(sprintf('The signing key `%s` configuration was not found.', $signingKey));
+        parent::__construct(sprintf('The configuration for the `%s` signing key was not found.', $signingKey));
     }
 }
