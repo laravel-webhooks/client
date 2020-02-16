@@ -32,9 +32,11 @@ abstract class WebhookClientController extends Controller
 
         $this->validateRequest();
 
-        $webhook = $this->storeWebhook();
+        if ($this->shouldProcess()) {
+            $webhook = $this->storeWebhook();
 
-        $this->dispatchJob($webhook);
+            $this->dispatchJob($webhook);
+        }
 
         $date = (string) Carbon::now();
 
@@ -86,6 +88,20 @@ abstract class WebhookClientController extends Controller
      * @return array
      */
     abstract public function getDefinedJobs(): array;
+
+    /**
+     * Determines if the request should be processed.
+     *
+     * @return bool
+     */
+    public function shouldProcess(): bool
+    {
+        $type = $this->getWebhookType();
+
+        $jobs = $this->getDefinedJobs();
+
+        return in_array($type, $jobs) && class_exists($jobs[$type]);
+    }
 
     /**
      * Dispatches the job for the Webhook, if the job class is defined and found.
