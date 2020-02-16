@@ -21,7 +21,7 @@ class WebhookReceived extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'type',
         'payload',
         'exception',
     ];
